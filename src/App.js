@@ -1,23 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header'
+import Tasks from './Tasks'
+import AddTask from './AddTask'
+import Footer from './/Footer'
+import React from 'react'
+import useLocalStorage from './useLocalStorage'
+import Speech from './Speech'
+
 
 function App() {
+  const [tasks, setTasks] = useLocalStorage('tasks',[
+  
+    {
+      id: 1,
+      text: 'buy a coffe',
+      done: false,
+    },
+    {
+      id: 2,
+      text: 'learn React',
+      done: true,
+    },
+  ])
+
+  //delete task
+  const deleteTask = (id) => {
+    console.log('delete', 'id-' + id)
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  //done task
+  const doneTask = (id) => {
+    console.log('done', 'id-' + id)
+    setTasks(tasks.map((task) => task.id === id ? { ...task, done: !task.done } : task))
+  }
+
+  //add Task
+  const addTask = (task) => {
+    // creating a random id for storage, for testing purpose
+    const id = Math.floor(Math.random() * 1000) + 1
+    console.log(id)
+    // adding new task using ... spread operator
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask])
+  }
+
+  const textChanged = (id, text) => {
+    console.log("in App.js id=" + id)
+    console.log("in App.js text=" + text)
+    //TODO: Minja please add a setTasks mapping here for the correct ID task with the new text!!
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+        <div className="cards">
+          <AddTask onAdd={addTask} />
+          <Tasks tasks={tasks} onDelete={deleteTask} onDone={doneTask} onChange={textChanged}  />
+        </div>
+        <Speech />
+      <Footer />
     </div>
   );
 }
