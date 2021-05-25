@@ -59,7 +59,7 @@ body.dark{
 }
 
 .card {
-  background-color: #e2e2e2;
+  background-color: #f9f9f9;
   border-radius: 8px;
   padding: 16px 18px;
   margin: 8px auto;
@@ -73,7 +73,7 @@ body.dark{
   justify-content: space-between;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid #cccccc;
+  border: 1px solid #a5a4a4;
 }
 .card:hover{
   transition: all 0.1s ease-out;
@@ -169,11 +169,13 @@ input[type='text'] {
 .footer {
   position: fixed;
   bottom: 0;
+  left: 0;
   padding: 10px;
   width: 100%;
   font-weight: 100;
   text-align: center;
   color: var(--text-color);
+  background: var(--background-color);
   z-index: 1;
 }
 
@@ -217,9 +219,10 @@ input[type='text'] {
   flex-wrap: wrap;
   gap: 10px;
   padding-top: 20px;
+  padding-bottom: 60px;
 }
 .voice-card{
-  background-color: #e2e2e2;
+  background-color: #f9f9f9;
   border-radius: 8px;
   padding: 16px 18px;
   margin: 8px auto;
@@ -251,6 +254,17 @@ input[type='text'] {
   font-size: 42px;
   padding-top: 12px;
   cursor: pointer;
+}
+.voice-text{
+  padding-bottom: 10px;
+}
+.custom-remove-voice{
+  outline: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e04462;
 }
 /* media */
 @media(min-width:800px) {
