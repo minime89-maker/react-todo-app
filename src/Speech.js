@@ -36,11 +36,11 @@ const Speech = () => {
 	const date = new Date().toDateString()
 
 	//deleting notes
-		const deletingSavedNotes = (item, id) => {
-			console.log(`item ${typeof(item)} with id-${id}`)
-			const newNote = {id, ...item}
-			console.log(`task is ${typeof(newNote)} type`)
-		}
+		// const deletingSavedNotes = (item, id) => {
+		// 	console.log(`item ${typeof(item)} with id-${id}`)
+		// 	const newNote = {id, ...item}
+		// 	console.log(`task is ${typeof(newNote)} type`)
+		// }
 
 		
 
@@ -61,9 +61,9 @@ const Speech = () => {
 				</div>
 			</div>
 			<div className='voice-cards'>
-				{save && save.map((item, id) => (
+				{save.map((item, id) => (
 					<div key={`${item}${id}`} className={item ? 'voice-card' : 'none'}><span className='date'>{`task saved: ${date}`}</span><span className='voice-text'>{item}</span>
-					<button className={finalTranscript === '' ? 'none' : 'custom-remove-voice'} onClick={() => deletingSavedNotes(item,id)}></button>
+					{/* <button className={finalTranscript === '' ? 'none' : 'custom-remove-voice'}></button> */}
 					</div>
 				))}
 			</div>
