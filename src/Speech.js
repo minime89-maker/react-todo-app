@@ -6,7 +6,7 @@ import useLocalStorage from './useLocalStorage';
 
 const Speech = () => {
 
-	const [save, setSave] = useLocalStorage('save', ['']) //local storage
+	const [save, setSave] = useLocalStorage('save', ) //local storage
 
 	const {
 		transcript,
@@ -61,7 +61,7 @@ const Speech = () => {
 				</div>
 			</div>
 			<div className='voice-cards'>
-				{save.map((item, id) => (
+				{save && save.map((item, id) => (
 					<div key={`${item}${id}`} className={item ? 'voice-card' : 'none'}><span className='date'>{`task saved: ${date}`}</span><span className='voice-text'>{item}</span>
 					<button className={finalTranscript === '' ? 'none' : 'custom-remove-voice'} onClick={() => deletingSavedNotes(item,id)}></button>
 					</div>
