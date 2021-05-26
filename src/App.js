@@ -13,13 +13,13 @@ function App() {
     {
       id: 1,
       text: 'buy a coffe',
-      done: false,
+      done: false
     },
     {
       id: 2,
       text: 'learn React',
-      done: true,
-    },
+      done: true
+    }
   ])
 
   //delete task
@@ -44,11 +44,12 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
-  const textChanged = (id, text) => {
-    console.log("in App.js id=" + id)
-    console.log("in App.js text=" + text)
-    //TODO: Minja please add a setTasks mapping here for the correct ID task with the new text!!
-  }
+  // const textChanged = (id, text) => {
+  //   console.log("in App.js id=" + id)
+  //   console.log("in App.js text=" + text)
+  //   Minja please add a setTasks mapping here for the correct ID task with the new text!!
+  //   setTasks((text.map((ele) => ele.id === id ? ele : 'none')))
+  // }
 
 
   return (
@@ -56,7 +57,7 @@ function App() {
       <Header />
         <div className="cards">
           <AddTask onAdd={addTask} />
-          <Tasks tasks={tasks} onDelete={deleteTask} onDone={doneTask} onChange={textChanged}  />
+          <Tasks tasks={tasks} onDelete={deleteTask} onDone={doneTask} />
         </div>
         <Speech />
       <Footer />

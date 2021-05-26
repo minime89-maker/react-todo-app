@@ -18,9 +18,8 @@ class Task extends Component{
 		<div className='card'>
 			<ContentEditable
 				className={`task ${this.props.task.done ? 'line' : ''}`}
-				onChange={() => this.props.onChange(this.props.task.id, this.props.task.text)} 
-					html={this.props.task.text}
-				innerRef={this.contentEditable}
+				onBlur={this.handleChange} 
+				html={this.props.task.text}
 			/>
 			<div className='card-bottom'>
 				<button className='custom-remove' onClick={() => this.props.onDelete(this.props.task.id)} style={{ cursor: "pointer" }}></button>
