@@ -1,6 +1,6 @@
 import ContentEditable from 'react-contenteditable'
 import React, {Component} from 'react'
-
+//Using Class Component because at the time when I was creating this Project, useRef Hook was not the cover on WBS Coding School
 
 class Task extends Component{ 
 	constructor(props) {
