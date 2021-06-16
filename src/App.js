@@ -5,8 +5,7 @@ import Footer from './/Footer'
 import React from 'react'
 import useLocalStorage from './useLocalStorage'
 import Speech from './Speech'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 function App() {
@@ -33,13 +32,6 @@ function App() {
     const newTask = {id, ...task}
     setTasks([...tasks, newTask])
   }
-
-  // const textChanged = (id, text) => {
-  //   console.log("in App.js id=" + id)
-  //   console.log("in App.js text=" + text)
-  //   setTasks((text.map((ele) => ele.id === id ? ele : 'none')))
-  // }
-
 
   return (
     <Router>

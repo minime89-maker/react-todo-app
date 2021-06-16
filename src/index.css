@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,6 @@
   --blue: #282C34;
   --white: rgb(236, 236, 236);
 }
-
 body {
   padding-top: 10px;
   font-family: "Roboto", sans-serif;
@@ -120,11 +120,6 @@ body.dark{
   margin-left: 8px;
   background-color: #1eae98;
 }
-.custom-done:hover, .custom-remove:hover{
-  width: 20px;
-  height: 20px;
-}
-
 .custom-text{
   padding-left: 4px;
   font-size: 17px;
@@ -184,12 +179,12 @@ input[type='text'] {
   text-decoration: none;
   font-weight: 400;
   color: #fff;
-  padding-left: 8px;
   color: var(--text-color);
 
 }
 .footer a:hover{
   font-size: 20px;
+  border-bottom: 3px solid #fff;
 }
 
 .task{
@@ -236,7 +231,6 @@ input[type='text'] {
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
-  overflow: hidden;
   font-size: 20px;
   border: 1px solid #a5a4a4;
   margin-bottom: 80px;
@@ -281,10 +275,6 @@ input[type='text'] {
   border: none;
   background-color: #e04462;
   cursor: pointer;
-}
-.custom-remove-voice:hover{
-  width: 20px;
-  height: 20px;
 }
 
 /* media */

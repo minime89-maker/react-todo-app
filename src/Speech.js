@@ -2,7 +2,6 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import useLocalStorage from './useLocalStorage';
 
 
-
 const Speech = () => {
 
 	const [save, setSave] = useLocalStorage('save',[''] )
@@ -13,20 +12,16 @@ const Speech = () => {
 		resetTranscript,
 	} = useSpeechRecognition()
 
-	//browser support --- only chrome
 	if (!SpeechRecognition.browserSupportsSpeechRecognition) {
 		alert('Please use another browser, I recomended Google Chrome for full exsperience...')
 	}
 
-	//saving notes
 	const handleSavedNotes = () => {
 		setSave([...save, finalTranscript])
 	}
 
-	// show date
 	const date = new Date().toDateString()
 
-	//deleting notes
 	const deletingSavedNotes = (item, id) => {
 		console.log(`item ${item} with id-${id}`)
 		setSave(save.filter((ele) => ele.id !== id))
@@ -54,7 +49,7 @@ const Speech = () => {
 					</div>
 				</div>
 			</div>
-			<div className={deletingSavedNotes === false ? 'none' : 'voice-card'}>
+			<div className={!deletingSavedNotes ? 'none' : 'voice-card'} style={{display: !deletingSavedNotes ? 'none' : 'flex'}}>
 				{save && save.map((item, index) => (
 					<div className='voice-top' key={`${item}${index}`} >
 						<span className='date'>{`task saved: ${date}`}</span>
